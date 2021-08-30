@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  ReferenceType
+//  Architecture
 //
-//  Created by jsj on 2021/08/29.
+//  Created by jsj on 2021/08/30.
 //
 
 import UIKit
