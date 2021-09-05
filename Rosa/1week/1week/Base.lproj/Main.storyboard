@@ -23,9 +23,14 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="영화 목록" id="G99-Uk-rFt">
-                                        <barButtonItem key="rightBarButtonItem" title="Item" image="square.and.arrow.down" catalog="system" id="Ofj-KC-Mlq">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="plus.app" catalog="system" id="2yQ-kd-e8t">
                                             <connections>
-                                                <action selector="touchedLoadButton:" destination="BYZ-38-t0r" id="iqs-tt-HEe"/>
+                                                <action selector="touchedAddButton:" destination="BYZ-38-t0r" id="S1A-Lb-wBk"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.up.and.down" catalog="system" id="Ofj-KC-Mlq">
+                                            <connections>
+                                                <action selector="touchedSortButton:" destination="BYZ-38-t0r" id="oDw-WD-XLE"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -60,7 +65,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
+        <image name="arrow.up.and.down" catalog="system" width="100" height="128"/>
+        <image name="plus.app" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
