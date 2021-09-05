@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Architecture
+//  1week
 //
 //  Created by jsj on 2021/08/30.
 //
