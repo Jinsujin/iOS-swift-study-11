@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreLocation
 
 class WeatherViewModel {
     
@@ -24,11 +23,18 @@ class WeatherViewModel {
     }
     
     func reload() {
-        service.fetchNow { [weak self] model in
+        service.fetchNow { [weak self] result in
             guard let self = self else { return }
-            self.temperatureString = model.tempString
-            self.cityName = model.cityName
-            self.conditionImageView = UIImage(systemName: model.conditionName)
+            switch result {
+            case .success(let model):
+                self.temperatureString = model.tempString
+                self.cityName = model.cityName
+                self.conditionImageView = UIImage(systemName: model.conditionName)
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+                break
+            }
         }
     }
     
@@ -37,8 +43,8 @@ class WeatherViewModel {
         reload()
     }
     
-    func fetchWeather(latitude: CLLocationDegrees, lognitude: CLLocationDegrees) {
-        service.fetchWeather(latitude: "\(latitude)", lognitude: "\(lognitude)")
+    func fetchWeather(latitude: String, lognitude: String) {
+        service.fetchWeather(latitude: latitude, lognitude: lognitude)
         reload()
     }
     

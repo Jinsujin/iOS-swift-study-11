@@ -23,3 +23,7 @@ struct Weather: Codable {
     let main: String
     let description: String
 }
+
+enum MyError: Error {
+    case error
+}

@@ -7,22 +7,27 @@
 //
 
 import Foundation
-import CoreLocation
 
 class Service {
     let repository = Repository()
     
-    var weatherModel : WeatherModel?
+    var weatherModel = WeatherModel(conditionID: 200, cityName: "Seoul", temperature: 0.0)
     
-    func fetchNow(onCompleted: @escaping (WeatherModel) -> Void) {
-        repository.fetchNow { weatherdata in
-            let id = weatherdata.weather[0].id
-            let temp = weatherdata.main.temp
-            let name = weatherdata.name
-            
-            self.weatherModel = WeatherModel(conditionID: id, cityName: name, temperature: temp)
-            
-            onCompleted(self.weatherModel!)
+    func fetchNow(onCompleted: @escaping (Result<WeatherModel, MyError>) -> Void) {
+        repository.fetchNow { result in
+            switch result {
+            case .success(let weatherdata):
+                let id = weatherdata.weather[0].id
+                let temp = weatherdata.main.temp
+                let name = weatherdata.name
+                
+                self.weatherModel = WeatherModel(conditionID: id, cityName: name, temperature: temp)
+                onCompleted(.success(self.weatherModel))
+            case .failure(.error):
+                onCompleted(.failure(.error))
+                break
+            }
+      
         }
     }
     
