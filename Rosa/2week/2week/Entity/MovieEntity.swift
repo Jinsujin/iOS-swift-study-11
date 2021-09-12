@@ -3,9 +3,8 @@
  Entity
     서버 혹은 디비에서 가져온 원천 데이터.
  */
-import Foundation
 
-struct Entity: Codable {
+struct MovieEntity: Codable {
     let adult: Bool
     let backdropPath: String
     let genreIds: [Int]

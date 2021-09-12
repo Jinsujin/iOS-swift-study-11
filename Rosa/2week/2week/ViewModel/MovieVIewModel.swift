@@ -6,8 +6,10 @@
 import Foundation
 
 
-class ViewModel {
-    private let service = Service()
+
+class MovieViewModel: ListViewModelInterface {
+    
+    private let service = MovieService()
     public var onUpdated: () -> Void = {}
     
     // 화면에 보여지는 값

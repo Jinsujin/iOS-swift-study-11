@@ -1,7 +1,7 @@
 /**
-    앱 상에서 로직을 수행하기 위한 데이터 모델 
+    앱 상에서 로직을 수행하기 위한 데이터 모델
  */
-struct Model {
+struct MovieModel {
     var id: Int
     var title: String?
     
@@ -16,5 +16,17 @@ struct Model {
         self.title = title
         self.posterPath = posterPath
         self.overview = overview
+    }
+}
+
+
+extension MovieModel: MappingInterface {
+    
+    init(entityType: MovieEntity) {
+        self.id = entityType.id
+        self.title = entityType.title
+        self.overview = entityType.overview
+        self.posterPath = entityType.posterPath
+        
     }
 }

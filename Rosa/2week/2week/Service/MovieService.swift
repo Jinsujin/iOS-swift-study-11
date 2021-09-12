@@ -5,25 +5,25 @@
  */
 import Foundation
 
-class Service {
+class MovieService {
     let repository = Repository()
     
     // state 상태값을 가짐.
-    var currentModel: [Model] = []
+    var currentModel: [MovieModel] = []
     var isSorted = false
     
     /// repository 를 통해서 데이터를 fetch
-    func fetch() -> [Model] {
+    func fetch() -> [MovieModel] {
         // Entity -> Model 변경
-        let datas = repository.fetch()
-        let models = datas.compactMap({ Model(id: $0.id, title: $0.title, posterPath: $0.posterPath, overview: $0.overview) })
+        let datas = repository.fetch(type: MovieModel.self, filename: "mock")
+        let models = datas.compactMap({ MovieModel(id: $0.id, title: $0.title, posterPath: $0.posterPath, overview: $0.overview) })
         self.currentModel = models
         return models
     }
     
     ///영화리스트에 새로운 데이터 추가
     func addMovie(_ title: String) {
-        let newData = Model(id: Int.random(in: 1...10), title: title, posterPath: nil, overview: "상세정보")
+        let newData = MovieModel(id: Int.random(in: 1...10), title: title, posterPath: nil, overview: "상세정보")
         self.currentModel.append(newData)
     }
     
