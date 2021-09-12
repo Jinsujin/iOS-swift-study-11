@@ -13,7 +13,7 @@
 		6F4C2E0F26DCF39D00E05CD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F4C2E0D26DCF39D00E05CD6 /* Main.storyboard */; };
 		6F4C2E1126DCF3A000E05CD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F4C2E1026DCF3A000E05CD6 /* Assets.xcassets */; };
 		6F4C2E1426DCF3A000E05CD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F4C2E1226DCF3A000E05CD6 /* LaunchScreen.storyboard */; };
-		6FDAB64B26E4A4C800B2B8AD /* DBData.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FDAB64A26E4A4C800B2B8AD /* DBData.json */; };
+		6FDAB64B26E4A4C800B2B8AD /* mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FDAB64A26E4A4C800B2B8AD /* mock.json */; };
 		6FDAB64E26E4A62600B2B8AD /* DBData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDAB64D26E4A62600B2B8AD /* DBData.swift */; };
 		6FDAB65226E4B81500B2B8AD /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDAB65126E4B81500B2B8AD /* Entity.swift */; };
 		6FDAB65626E4B83700B2B8AD /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDAB65526E4B83700B2B8AD /* Repository.swift */; };
@@ -31,7 +31,7 @@
 		6F4C2E1026DCF3A000E05CD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F4C2E1326DCF3A000E05CD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6F4C2E1526DCF3A000E05CD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6FDAB64A26E4A4C800B2B8AD /* DBData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DBData.json; sourceTree = "<group>"; };
+		6FDAB64A26E4A4C800B2B8AD /* mock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mock.json; sourceTree = "<group>"; };
 		6FDAB64D26E4A62600B2B8AD /* DBData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBData.swift; sourceTree = "<group>"; };
 		6FDAB65126E4B81500B2B8AD /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		6FDAB65526E4B83700B2B8AD /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 		6FDAB66226E4C79E00B2B8AD /* DB */ = {
 			isa = PBXGroup;
 			children = (
-				6FDAB64A26E4A4C800B2B8AD /* DBData.json */,
+				6FDAB64A26E4A4C800B2B8AD /* mock.json */,
 				6FDAB64D26E4A62600B2B8AD /* DBData.swift */,
 			);
 			path = DB;
@@ -196,7 +196,7 @@
 				6F4C2E1426DCF3A000E05CD6 /* LaunchScreen.storyboard in Resources */,
 				6F4C2E1126DCF3A000E05CD6 /* Assets.xcassets in Resources */,
 				6F4C2E0F26DCF39D00E05CD6 /* Main.storyboard in Resources */,
-				6FDAB64B26E4A4C800B2B8AD /* DBData.json in Resources */,
+				6FDAB64B26E4A4C800B2B8AD /* mock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

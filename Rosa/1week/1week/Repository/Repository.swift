@@ -15,7 +15,16 @@ import Foundation
 class Repository {
     /// json 을 가져와 Entity 로 디코딩하여 반환
     func fetch() -> [Entity] {
-        let dbdata = DBData()
-        return dbdata.datas
+        guard let path = Bundle.main.path(forResource: "mock", ofType: "json"),
+              let jsonString = try? String(contentsOfFile: path) else {
+            return []
+        }
+        
+        let decoder = JSONDecoder()
+        guard let data = jsonString.data(using: .utf8),
+           let decodedDatas = try? decoder.decode([Entity].self, from: data) else {
+            return []
+        }
+        return decodedDatas
     }
 }
