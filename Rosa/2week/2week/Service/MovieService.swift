@@ -5,7 +5,7 @@
  */
 import Foundation
 
-class MovieService: ServiceInterface {
+class MovieService {
     
     let repository = Repository()
     
