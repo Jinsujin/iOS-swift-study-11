@@ -6,6 +6,7 @@
 import Foundation
 
 class YoutubeService {
+
     let repository = Repository()
     
     // state 상태값을 가짐.
@@ -22,14 +23,13 @@ class YoutubeService {
     }
     
     ///영화리스트에 새로운 데이터 추가
-    func addMovie(_ title: String) {
-//        let newData = MovieModel(id: Int.random(in: 1...10), title: title, posterPath: nil, overview: "상세정보")
+    func add(_ title: String) {
         let newData = YoutubeModel(id: "undefined", title: title, overview: nil)
         self.currentModel.append(newData)
     }
     
     /// 타이틀을 기준으로 영화리스트 정렬
-    func sortMovies() {
+    func sort() {
         isSorted = !isSorted
         isSorted
             ? currentModel.sort(by: {$0.title! > $1.title!}) // 내림

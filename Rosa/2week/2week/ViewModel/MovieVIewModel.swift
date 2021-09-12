@@ -35,12 +35,12 @@ class MovieViewModel: ListViewModelInterface {
     }
     
     func addMovie(_ title: String) {
-        service.addMovie(title)
+        service.add(title)
         self.titlesString = service.currentModel.compactMap({ $0.title }).joined(separator: ",")
     }
     
     func sortMovies() {
-        service.sortMovies()
+        service.sort()
         self.titlesString = service.currentModel.compactMap({ $0.title }).joined(separator: ",")
     }
 }

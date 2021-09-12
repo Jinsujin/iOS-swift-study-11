@@ -28,6 +28,7 @@
 		6FF228B126EDEB88004D953D /* YoutubeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF228B026EDEB88004D953D /* YoutubeViewModel.swift */; };
 		6FF228BC26EDEE96004D953D /* YoutubeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF228BB26EDEE96004D953D /* YoutubeService.swift */; };
 		6FF228C726EE0112004D953D /* MappingInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF228C626EE0112004D953D /* MappingInterface.swift */; };
+		6FF228CC26EE0D1D004D953D /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF228CB26EE0D1D004D953D /* ListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		6FF228B026EDEB88004D953D /* YoutubeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeViewModel.swift; sourceTree = "<group>"; };
 		6FF228BB26EDEE96004D953D /* YoutubeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeService.swift; sourceTree = "<group>"; };
 		6FF228C626EE0112004D953D /* MappingInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MappingInterface.swift; sourceTree = "<group>"; };
+		6FF228CB26EE0D1D004D953D /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 				6FF2285226EDCC77004D953D /* ListViewModel+Interface.swift */,
 				6FF228B026EDEB88004D953D /* YoutubeViewModel.swift */,
 				6FF2286D26EDCD5C004D953D /* MovieVIewModel.swift */,
+				6FF228CB26EE0D1D004D953D /* ListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				6FF2284526EDCBDE004D953D /* RootTabbarViewController.swift in Sources */,
 				6FF2281626EDCB69004D953D /* ViewController.swift in Sources */,
 				6FF2285326EDCC77004D953D /* ListViewModel+Interface.swift in Sources */,
+				6FF228CC26EE0D1D004D953D /* ListViewModel.swift in Sources */,
 				6FF2287326EDCD89004D953D /* MovieEntity.swift in Sources */,
 				6FF2289C26EDD5C2004D953D /* SceneDelegate.swift in Sources */,
 				6FF228AC26EDE402004D953D /* YoutubeEntity.swift in Sources */,
