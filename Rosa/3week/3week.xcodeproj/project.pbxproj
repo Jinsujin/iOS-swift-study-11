@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		6FEEEDE027127CAB001D4161 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FEEEDDE27127CAB001D4161 /* LaunchScreen.storyboard */; };
 		6FEEEDEB27127CAC001D4161 /* _weekTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEEEDEA27127CAC001D4161 /* _weekTests.swift */; };
 		6FEEEDF627127CAC001D4161 /* _weekUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEEEDF527127CAC001D4161 /* _weekUITests.swift */; };
+		6FEEEE0E271293A1001D4161 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEEEE0D271293A1001D4161 /* Item.swift */; };
 		7B2DF39E3F7ECA1A4DB3B669 /* Pods_3weekTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21AB363B266DD3D7E8DD8D49 /* Pods_3weekTests.framework */; };
 		861EB1356610B9760E9BF4D4 /* Pods_3week.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2FC59D32C9E84352C5EA19 /* Pods_3week.framework */; };
 		E17022B9733C797FB82258D8 /* Pods_3week_3weekUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFCA26EBAEA9937B83F92177 /* Pods_3week_3weekUITests.framework */; };
@@ -57,6 +58,7 @@
 		6FEEEDF127127CAC001D4161 /* 3weekUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 3weekUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FEEEDF527127CAC001D4161 /* _weekUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _weekUITests.swift; sourceTree = "<group>"; };
 		6FEEEDF727127CAC001D4161 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6FEEEE0D271293A1001D4161 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		BFCA26EBAEA9937B83F92177 /* Pods_3week_3weekUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_3week_3weekUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5A6193057CEACF469D4F07A /* Pods-3week.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-3week.release.xcconfig"; path = "Target Support Files/Pods-3week/Pods-3week.release.xcconfig"; sourceTree = "<group>"; };
 		EF2EDCF1DBBFF57646B8DB39 /* Pods-3weekTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-3weekTests.debug.xcconfig"; path = "Target Support Files/Pods-3weekTests/Pods-3weekTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				6FEEEDDC27127CAB001D4161 /* Assets.xcassets */,
 				6FEEEDDE27127CAB001D4161 /* LaunchScreen.storyboard */,
 				6FEEEDE127127CAB001D4161 /* Info.plist */,
+				6FEEEE0D271293A1001D4161 /* Item.swift */,
 			);
 			path = 3week;
 			sourceTree = "<group>";
@@ -155,7 +158,6 @@
 				EF2EDCF1DBBFF57646B8DB39 /* Pods-3weekTests.debug.xcconfig */,
 				F126FE3E09D990A9E7B016E9 /* Pods-3weekTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -407,6 +409,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FEEEE0E271293A1001D4161 /* Item.swift in Sources */,
 				6FEEEDD827127CA7001D4161 /* ViewController.swift in Sources */,
 				6FEEEDD427127CA7001D4161 /* AppDelegate.swift in Sources */,
 				6FEEEDD627127CA7001D4161 /* SceneDelegate.swift in Sources */,

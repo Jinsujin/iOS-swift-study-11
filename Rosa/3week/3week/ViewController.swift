@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 
 class ViewController: UIViewController {
+    var data: [Item] = []
 
     @IBOutlet weak var fetchButton: UIButton!
     @IBOutlet weak var textView: UITextView!
@@ -24,38 +25,44 @@ class ViewController: UIViewController {
     @IBAction func touchedFetchButton(_ sender: Any) {
         textView.text = "Fetch Start"
         
-        fetchData(urlString: self.urlString) { (result) in
-            DispatchQueue.main.async {
-                self.textView.text = result
-            }
-        }
+        fetchDataRx(from: self.urlString)
+            .observe(on: MainScheduler.instance) // UI는 메인쓰레드에서 업데이트
+            .subscribe(onNext: { [weak self] items in
+                self?.data = items
+                self?.textView.text = "\(items.count)"
+            }, onError: { error in
+                print(error.localizedDescription)
+            }, onCompleted: {
+                print("onCompleted")
+            }, onDisposed: {
+                print("onDisposed")
+            })
     }
     
-    
-    func fetchData(urlString: String, completion: @escaping(String) -> Void) {
-        guard let url = URL(string: urlString) else { return }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        request.setValue("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", forHTTPHeaderField: "access_token")
-        
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
-            print("URLSession start")
-            if let error = error {
-                completion(error.localizedDescription)
-                return
+    func fetchDataRx(from url: String) -> Observable<[Item]> {
+        return Observable.create { emitter in
+            var request = URLRequest(url: URL(string: url)!)
+            request.httpMethod = "GET"
+            request.setValue("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", forHTTPHeaderField: "access_token")
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                if let error = error {
+                    emitter.onError(error)
+                    return
+                }
+                
+                guard let data = data,
+                      let decodedResult = try? JSONDecoder().decode(Result.self, from: data) else {
+                    emitter.onCompleted()
+                    return
+                }
+                emitter.onNext(decodedResult.items)
+                emitter.onCompleted()
             }
-            
-            guard let data = data,
-                  let json = String(data: data, encoding: .utf8) else {
-                completion("Fail convert data")
-                return
+            task.resume()
+            return Disposables.create {
+                task.cancel()
             }
-            
-            completion(json)
-        }.resume()
-        
-        completion("function End")
+        }
     }
 }
 
