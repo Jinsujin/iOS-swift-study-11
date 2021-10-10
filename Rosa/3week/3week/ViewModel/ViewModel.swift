@@ -13,6 +13,7 @@ class ViewModel {
         
     }
     
+    // 데이터 불러오기 성공일때 : onNext -> onCompleted -> onDisposed
     func fetchData() {
         service.fetchDataRx(from: urlString)
             .subscribe(subject)

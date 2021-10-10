@@ -1,18 +1,9 @@
-//
-//  ViewController.swift
-//  3week
-//
-//  Created by jsj on 2021/10/10.
-//
-
 import UIKit
 import RxSwift
 import RxCocoa
 
 class ViewController: UIViewController {
     private let cellId = "mycell"
-    
-    var data: [Item] = []
 
     @IBOutlet weak var fetchButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -26,6 +17,11 @@ class ViewController: UIViewController {
         bindUI()
     }
 
+
+    @IBAction func touchedFetchButton(_ sender: Any) {
+        viewModel.fetchData()
+    }
+    
     private func bindUI() {
         viewModel.subject
         .bind(to: tableView.rx.items(cellIdentifier: cellId, cellType: ItemCell.self)) { index, model, cell in
@@ -33,11 +29,6 @@ class ViewController: UIViewController {
         }.disposed(by: disposeBag)
     }
     
-    
-    // 데이터 불러오기 성공일때 : onNext -> onCompleted -> onDisposed
-    @IBAction func touchedFetchButton(_ sender: Any) {
-        viewModel.fetchData()
-    }
 }
 
 // MARK:- ItemCell
