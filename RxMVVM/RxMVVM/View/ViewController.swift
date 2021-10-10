@@ -45,6 +45,7 @@ final class ViewController: BaseViewController {
     
     override func setConfigure() {
         
+        collectionView.backgroundColor = .white
         view.addSubview(repoSearchBar)
         view.addSubview(collectionView)
     }

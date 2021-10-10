@@ -37,7 +37,8 @@ class SearchCollectionViewCell: UICollectionViewCell {
         repoStackView.addArrangedSubview(repoDescription)
         
         repoStackView.snp.makeConstraints {
-            $0.top.leading.trailing.bottom.equalTo(contentView)
+            $0.top.leading.equalTo(contentView).offset(20)
+            $0.bottom.trailing.equalTo(contentView).offset(-20)
         }
     }
     
