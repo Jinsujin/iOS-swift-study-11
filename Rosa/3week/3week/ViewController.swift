@@ -9,27 +9,28 @@ import UIKit
 import RxSwift
 
 class ViewController: UIViewController {
+    let urlString = "https://api.github.com/search/repositories?sort=starts&order=desc&q=rx%20in:name+language:swift+followers:%3E%3D100"
     var data: [Item] = []
 
     @IBOutlet weak var fetchButton: UIButton!
-    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var tableView: UITableView!
     
-    let urlString = "https://api.github.com/search/repositories?sort=starts&order=desc&q=rx%20in:name+language:swift+followers:%3E%3D100"
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 
+    // 데이터 불러오기 성공일때 : onNext -> onCompleted -> onDisposed
     @IBAction func touchedFetchButton(_ sender: Any) {
-        textView.text = "Fetch Start"
-        
         fetchDataRx(from: self.urlString)
             .observe(on: MainScheduler.instance) // UI는 메인쓰레드에서 업데이트
             .subscribe(onNext: { [weak self] items in
                 self?.data = items
-                self?.textView.text = "\(items.count)"
+                print(items)
+                self?.tableView.reloadData()
             }, onError: { error in
                 print(error.localizedDescription)
             }, onCompleted: {
@@ -66,3 +67,23 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data.count
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "mycell") as! ItemCell
+        cell.setData(data[indexPath.row])
+        return cell
+    }
+}
+
+// MARK:- ItemCell
+class ItemCell: UITableViewCell {
+    @IBOutlet weak var titleLable: UILabel!
+    
+    func setData(_ data: Item) {
+        self.titleLable.text = data.name
+    }
+}
