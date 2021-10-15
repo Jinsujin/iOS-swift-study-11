@@ -11,6 +11,8 @@ import Alamofire
 class LoginManager {
     static let shared = LoginManager()
     
+    var token: String = ""
+    
     private init() {
         
     }
@@ -60,7 +62,7 @@ class LoginManager {
         }
     }
     
-    func requestAccessToken(with code: String, completion: @escaping (String) -> Void) {
+    func requestAccessToken(with code: String) {
         let url = "https://github.com/login/oauth/access_token"
         let param = ["client_id" : CLIENT_ID,
                      "client_secret" : CLIENT_SECRET,
@@ -72,7 +74,8 @@ class LoginManager {
             case .success(let json):
                 if let dic = json as? [String: String] {
                     let accessToken = dic["access_token"] ?? ""
-                    completion(accessToken)
+                    print(accessToken)
+                    self.token = accessToken
                 }
             case .failure(let error):
                 print(error)

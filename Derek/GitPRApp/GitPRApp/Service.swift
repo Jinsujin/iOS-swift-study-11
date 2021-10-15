@@ -7,36 +7,27 @@
 
 import Foundation
 import Alamofire
+import RxSwift
 
 class Service {
-    func fetchData(with token: String) {
-        let url = "https://api.github.com/user/repos"
-        let headers: HTTPHeaders = ["Authorization" : "token \(token)"]
-        
-        AF.request(url, method: .get, headers: headers).responseData { response in
+    func fetchData(with token: String) -> Observable<[RepoData]> {
+        return Observable.create { emitter in
+            let url = "https://api.github.com/user/repos"
+            let headers: HTTPHeaders = ["Authorization" : "token \(token)"]
             
-            switch response.result {
-            case .success(let data):
-                guard let decodedData = try? JSONDecoder().decode(RepoData.self, from: data) else {
-                    print("디코딩 실패")
-                    return }
-                print(decodedData)
-            case .failure(let error):
-                print(error.localizedDescription)
+            AF.request(url, method: .get, headers: headers)   .responseDecodable(of: [RepoData].self) { response in
+                switch response.result {
+                case .success(let data):
+                    emitter.onNext(data)
+                    emitter.onCompleted()
+                case .failure(let error):
+                    emitter.onError(error)
+                    print(error.localizedDescription)
+                }
             }
-            
+            return Disposables.create {
+                print("무엇을 해야할까요?")
+            }
         }
-        
-        
-        
-//        { response in
-//            switch response.result {
-//            case .success(let json):
-//                 let jsonDecoder = JSONDecoder()
-//                jsonDecoder.decode(RepoData.self, from: json)
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
     }
 }

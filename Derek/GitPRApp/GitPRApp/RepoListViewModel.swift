@@ -6,9 +6,21 @@
 //
 
 import Foundation
+import RxSwift
 
 class RepoListViewModel {
-    func requestRepo() {
-        	
+    let service = Service()
+    let disposeBag = DisposeBag()
+    
+    let subject = BehaviorSubject<[RepoData]>(value: [])
+    
+    init () {
+        
+    }
+    
+    func fetchData() {
+        service.fetchData(with: LoginManager.shared.token)
+            .subscribe(subject)
+            .disposed(by: disposeBag)
     }
 }
