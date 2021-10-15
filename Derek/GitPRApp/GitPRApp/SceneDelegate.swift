@@ -51,7 +51,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let url = URLContexts.first?.url {
             if url.absoluteString.starts(with: "gitprapp://") {
                 if let code = url.absoluteString.split(separator: "=").last.map({"\($0)"}) {
-                    LoginManager.shared.requestAccessToken(with: code)
+                    //access Token 얻기
+                    LoginManager.shared.requestAccessToken(with: code) { accessToken in
+                        Service().fetchData(with: accessToken)
+                    }
                 }
             }
         }

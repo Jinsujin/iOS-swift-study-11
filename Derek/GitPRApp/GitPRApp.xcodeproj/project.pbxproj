@@ -15,6 +15,10 @@
 		3515A0D5270D978100B15D6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3515A0D3270D978100B15D6A /* LaunchScreen.storyboard */; };
 		3515A0DD270D981B00B15D6A /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3515A0DC270D981B00B15D6A /* LoginManager.swift */; };
 		3515A0DF270DDCEE00B15D6A /* KeyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3515A0DE270DDCEE00B15D6A /* KeyList.plist */; };
+		356CDF1D27196434002FED76 /* RepoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356CDF1C27196434002FED76 /* RepoListTableViewController.swift */; };
+		356CDF1F2719656B002FED76 /* RepoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356CDF1E2719656B002FED76 /* RepoListViewModel.swift */; };
+		356CDF2127197CB3002FED76 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356CDF2027197CB3002FED76 /* Service.swift */; };
+		356CDF2327198936002FED76 /* RepoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356CDF2227198935002FED76 /* RepoData.swift */; };
 		7F3EFCC067F37CC433D26DAA /* Pods_GitPRApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38CD0B58A2025272721A5C61 /* Pods_GitPRApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +33,10 @@
 		3515A0D6270D978100B15D6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3515A0DC270D981B00B15D6A /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		3515A0DE270DDCEE00B15D6A /* KeyList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = KeyList.plist; sourceTree = "<group>"; };
+		356CDF1C27196434002FED76 /* RepoListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListTableViewController.swift; sourceTree = "<group>"; };
+		356CDF1E2719656B002FED76 /* RepoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListViewModel.swift; sourceTree = "<group>"; };
+		356CDF2027197CB3002FED76 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		356CDF2227198935002FED76 /* RepoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoData.swift; sourceTree = "<group>"; };
 		38CD0B58A2025272721A5C61 /* Pods_GitPRApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitPRApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3E52F11C74D9D1750E44393 /* Pods-GitPRApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitPRApp.debug.xcconfig"; path = "Target Support Files/Pods-GitPRApp/Pods-GitPRApp.debug.xcconfig"; sourceTree = "<group>"; };
 		FD4849AA011C03439F4127AC /* Pods-GitPRApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitPRApp.release.xcconfig"; path = "Target Support Files/Pods-GitPRApp/Pods-GitPRApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -69,9 +77,13 @@
 			children = (
 				3515A0C8270D977F00B15D6A /* AppDelegate.swift */,
 				3515A0CA270D977F00B15D6A /* SceneDelegate.swift */,
-				3515A0CC270D977F00B15D6A /* ViewController.swift */,
-				3515A0CE270D977F00B15D6A /* Main.storyboard */,
 				3515A0DC270D981B00B15D6A /* LoginManager.swift */,
+				3515A0CC270D977F00B15D6A /* ViewController.swift */,
+				356CDF1C27196434002FED76 /* RepoListTableViewController.swift */,
+				356CDF1E2719656B002FED76 /* RepoListViewModel.swift */,
+				356CDF2027197CB3002FED76 /* Service.swift */,
+				356CDF2227198935002FED76 /* RepoData.swift */,
+				3515A0CE270D977F00B15D6A /* Main.storyboard */,
 				3515A0DE270DDCEE00B15D6A /* KeyList.plist */,
 				3515A0D1270D978100B15D6A /* Assets.xcassets */,
 				3515A0D3270D978100B15D6A /* LaunchScreen.storyboard */,
@@ -213,7 +225,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				356CDF1D27196434002FED76 /* RepoListTableViewController.swift in Sources */,
+				356CDF2327198936002FED76 /* RepoData.swift in Sources */,
+				356CDF2127197CB3002FED76 /* Service.swift in Sources */,
 				3515A0CD270D977F00B15D6A /* ViewController.swift in Sources */,
+				356CDF1F2719656B002FED76 /* RepoListViewModel.swift in Sources */,
 				3515A0DD270D981B00B15D6A /* LoginManager.swift in Sources */,
 				3515A0C9270D977F00B15D6A /* AppDelegate.swift in Sources */,
 				3515A0CB270D977F00B15D6A /* SceneDelegate.swift in Sources */,

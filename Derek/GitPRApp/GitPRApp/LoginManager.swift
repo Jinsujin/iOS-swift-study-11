@@ -60,7 +60,7 @@ class LoginManager {
         }
     }
     
-    func requestAccessToken(with code: String) {
+    func requestAccessToken(with code: String, completion: @escaping (String) -> Void) {
         let url = "https://github.com/login/oauth/access_token"
         let param = ["client_id" : CLIENT_ID,
                      "client_secret" : CLIENT_SECRET,
@@ -71,9 +71,8 @@ class LoginManager {
             switch response.result {
             case .success(let json):
                 if let dic = json as? [String: String] {
-                    print(dic["access_token"] ?? "")
-                    print(dic["scope"]  ?? "")
-                    print(dic["token_type"]  ?? "")
+                    let accessToken = dic["access_token"] ?? ""
+                    completion(accessToken)
                 }
             case .failure(let error):
                 print(error)

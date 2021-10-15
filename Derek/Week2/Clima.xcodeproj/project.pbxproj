@@ -78,16 +78,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3591AA4526DF4FD2005D56EB /* Model */ = {
+		355825CD271469870063D9FD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3591AA5A26E1EDF6005D56EB /* WeatherViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		355825CE271469A60063D9FD /* Entity */ = {
 			isa = PBXGroup;
 			children = (
 				3591AA4826DF5B7F005D56EB /* Entity.swift */,
-				3591AA5026E07D71005D56EB /* WeatherModel.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		355825CF271469AF0063D9FD /* Repository */ = {
+			isa = PBXGroup;
+			children = (
 				3591AA5426E1E97D005D56EB /* Repository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		355825D0271469B70063D9FD /* Service */ = {
+			isa = PBXGroup;
+			children = (
 				3591AA5626E1E9ED005D56EB /* Service.swift */,
-				3591AA5A26E1EDF6005D56EB /* WeatherViewModel.swift */,
-				3515A0E4270DDF5400B15D6A /* KeyList.plist */,
-				ADAA27B4231BBFAF00365194 /* WeatherViewController.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		3591AA4526DF4FD2005D56EB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3591AA5026E07D71005D56EB /* WeatherModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -123,15 +149,20 @@
 		ADAA27AF231BBFAF00365194 /* Clima */ = {
 			isa = PBXGroup;
 			children = (
-				ADAA27BE231BBFB300365194 /* Info.plist */,
-				ADAA27B0231BBFAF00365194 /* AppDelegate.swift */,
-				ADAA27B2231BBFAF00365194 /* SceneDelegate.swift */,
-				3591AA5226E08141005D56EB /* WeatherManagerDelegate.swift */,
+				355825CE271469A60063D9FD /* Entity */,
+				355825CF271469AF0063D9FD /* Repository */,
+				355825D0271469B70063D9FD /* Service */,
+				355825CD271469870063D9FD /* ViewModel */,
 				3591AA4526DF4FD2005D56EB /* Model */,
 				ADAA27C9231BC3F200365194 /* View */,
 				ADAA27B9231BBFB300365194 /* Assets.xcassets */,
 				ADAA27BB231BBFB300365194 /* LaunchScreen.storyboard */,
 				3502AF8B26EC963B00E47223 /* Protocol.swift */,
+				3515A0E4270DDF5400B15D6A /* KeyList.plist */,
+				ADAA27BE231BBFB300365194 /* Info.plist */,
+				ADAA27B0231BBFAF00365194 /* AppDelegate.swift */,
+				ADAA27B2231BBFAF00365194 /* SceneDelegate.swift */,
+				3591AA5226E08141005D56EB /* WeatherManagerDelegate.swift */,
 			);
 			path = Clima;
 			sourceTree = "<group>";
@@ -139,6 +170,7 @@
 		ADAA27C9231BC3F200365194 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ADAA27B4231BBFAF00365194 /* WeatherViewController.swift */,
 				ADAA27B6231BBFAF00365194 /* Main.storyboard */,
 			);
 			path = View;
