@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -17,6 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -52,7 +55,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             if url.absoluteString.starts(with: "gitprapp://") {
                 if let code = url.absoluteString.split(separator: "=").last.map({"\($0)"}) {
                     //access Token 얻기
-                    LoginManager.shared.requestAccessToken(with: code)
+                    
+                    /*
+                    LoginManager.shared.requestAccessTokenRx(with: code)
+                        .subscribe(onNext: {
+                            let repoViewModel = RepoListViewModel()
+                            repoViewModel.fetchData(with: $0)
+                            self.window?.rootViewController = UINavigationController(rootViewController: RepoListTableViewController())
+                        })
+                        .disposed(by: DisposeBag())
+                    */
+                    
+                    
+                    LoginManager.shared.requestAccessToken(with: code) { [weak self] token in
+                        guard let self = self else { return }
+                        let repoViewModel = RepoListViewModel()
+                        repoViewModel.fetchData(with: token)
+                        self.window?.rootViewController = UINavigationController(rootViewController: RepoListTableViewController())
+                       
+                    }
+                     
                 }
             }
         }

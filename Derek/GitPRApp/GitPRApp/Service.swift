@@ -10,7 +10,7 @@ import Alamofire
 import RxSwift
 
 class Service {
-    func fetchData(with token: String) -> Observable<[RepoData]> {
+    func fetchDataRx(with token: String) -> Observable<[RepoData]> {
         return Observable.create { emitter in
             let url = "https://api.github.com/user/repos"
             let headers: HTTPHeaders = ["Authorization" : "token \(token)"]
@@ -21,6 +21,7 @@ class Service {
                     emitter.onNext(data)
                     emitter.onCompleted()
                 case .failure(let error):
+                    print("디코딩 오류")
                     emitter.onError(error)
                     print(error.localizedDescription)
                 }
@@ -30,4 +31,19 @@ class Service {
             }
         }
     }
+    
+//    func fetchData(with token: String) {
+//        let url = "https://api.github.com/user/repos"
+//        let headers: HTTPHeaders = ["Authorization" : "token \(token)"]
+//
+//        AF.request(url, method: .get, headers: headers)   .responseDecodable(of: [RepoData].self) { response in
+//            switch response.result {
+//            case .success(let data):
+//                print(data[0].fullName)
+//            case .failure(let error):
+//                print("디코딩 오류")
+//                print(error.localizedDescription)
+//            }
+//        }
+//    }
 }

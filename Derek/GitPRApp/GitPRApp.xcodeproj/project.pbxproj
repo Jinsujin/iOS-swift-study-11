@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		3515A0C9270D977F00B15D6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3515A0C8270D977F00B15D6A /* AppDelegate.swift */; };
 		3515A0CB270D977F00B15D6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3515A0CA270D977F00B15D6A /* SceneDelegate.swift */; };
-		3515A0CD270D977F00B15D6A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3515A0CC270D977F00B15D6A /* ViewController.swift */; };
 		3515A0D0270D977F00B15D6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3515A0CE270D977F00B15D6A /* Main.storyboard */; };
 		3515A0D2270D978100B15D6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3515A0D1270D978100B15D6A /* Assets.xcassets */; };
 		3515A0D5270D978100B15D6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3515A0D3270D978100B15D6A /* LaunchScreen.storyboard */; };
 		3515A0DD270D981B00B15D6A /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3515A0DC270D981B00B15D6A /* LoginManager.swift */; };
 		3515A0DF270DDCEE00B15D6A /* KeyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3515A0DE270DDCEE00B15D6A /* KeyList.plist */; };
+		353102B4271A5E7C00A27FE6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353102B3271A5E7C00A27FE6 /* LoginViewController.swift */; };
 		356CDF1D27196434002FED76 /* RepoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356CDF1C27196434002FED76 /* RepoListTableViewController.swift */; };
 		356CDF1F2719656B002FED76 /* RepoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356CDF1E2719656B002FED76 /* RepoListViewModel.swift */; };
 		356CDF2127197CB3002FED76 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356CDF2027197CB3002FED76 /* Service.swift */; };
@@ -28,13 +28,13 @@
 		3515A0C5270D977F00B15D6A /* GitPRApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitPRApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3515A0C8270D977F00B15D6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3515A0CA270D977F00B15D6A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3515A0CC270D977F00B15D6A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3515A0CF270D977F00B15D6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3515A0D1270D978100B15D6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3515A0D4270D978100B15D6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3515A0D6270D978100B15D6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3515A0DC270D981B00B15D6A /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		3515A0DE270DDCEE00B15D6A /* KeyList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = KeyList.plist; sourceTree = "<group>"; };
+		353102B3271A5E7C00A27FE6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		356CDF1C27196434002FED76 /* RepoListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListTableViewController.swift; sourceTree = "<group>"; };
 		356CDF1E2719656B002FED76 /* RepoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListViewModel.swift; sourceTree = "<group>"; };
 		356CDF2027197CB3002FED76 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -82,11 +82,11 @@
 				3515A0C8270D977F00B15D6A /* AppDelegate.swift */,
 				3515A0CA270D977F00B15D6A /* SceneDelegate.swift */,
 				3515A0DC270D981B00B15D6A /* LoginManager.swift */,
-				3515A0CC270D977F00B15D6A /* ViewController.swift */,
-				356CDF1C27196434002FED76 /* RepoListTableViewController.swift */,
-				356CDF1E2719656B002FED76 /* RepoListViewModel.swift */,
-				356CDF2027197CB3002FED76 /* Service.swift */,
 				356CDF2227198935002FED76 /* RepoData.swift */,
+				356CDF2027197CB3002FED76 /* Service.swift */,
+				353102B3271A5E7C00A27FE6 /* LoginViewController.swift */,
+				356CDF1E2719656B002FED76 /* RepoListViewModel.swift */,
+				356CDF1C27196434002FED76 /* RepoListTableViewController.swift */,
 				3515A0CE270D977F00B15D6A /* Main.storyboard */,
 				3515A0DE270DDCEE00B15D6A /* KeyList.plist */,
 				3515A0D1270D978100B15D6A /* Assets.xcassets */,
@@ -240,8 +240,8 @@
 				356CDF1D27196434002FED76 /* RepoListTableViewController.swift in Sources */,
 				356CDF2327198936002FED76 /* RepoData.swift in Sources */,
 				356CDF2127197CB3002FED76 /* Service.swift in Sources */,
-				3515A0CD270D977F00B15D6A /* ViewController.swift in Sources */,
 				356CDF1F2719656B002FED76 /* RepoListViewModel.swift in Sources */,
+				353102B4271A5E7C00A27FE6 /* LoginViewController.swift in Sources */,
 				3515A0DD270D981B00B15D6A /* LoginManager.swift in Sources */,
 				3515A0C9270D977F00B15D6A /* AppDelegate.swift in Sources */,
 				3515A0CB270D977F00B15D6A /* SceneDelegate.swift in Sources */,

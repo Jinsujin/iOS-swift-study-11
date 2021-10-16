@@ -9,20 +9,19 @@ import Foundation
 
 struct RepoData: Codable {
     let id: Int
-    let nodeId: String
-    let name: String
-    let fullName: String
+    let nodeID, name, fullName: String
     let owner: Owner
-    let description: String?
+    let repoDescription: String?
     let repoURL: String
     let language: String?
     
     enum CodingKeys: String, CodingKey {
         case id
-        case nodeId = "node_id"
+        case nodeID = "node_id"
         case name
         case fullName = "full_name"
-        case owner, description
+        case owner
+        case repoDescription = "description"
         case repoURL = "url"
         case language
     }

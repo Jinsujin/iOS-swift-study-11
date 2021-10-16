@@ -7,12 +7,11 @@
 
 import UIKit
 import Alamofire
+import RxSwift
 
 class LoginManager {
     static let shared = LoginManager()
-    
-    var token: String = ""
-    
+        
     private init() {
         
     }
@@ -62,7 +61,7 @@ class LoginManager {
         }
     }
     
-    func requestAccessToken(with code: String) {
+    func requestAccessToken(with code: String, completionHandelr:  @escaping (String) -> Void) {
         let url = "https://github.com/login/oauth/access_token"
         let param = ["client_id" : CLIENT_ID,
                      "client_secret" : CLIENT_SECRET,
@@ -75,7 +74,7 @@ class LoginManager {
                 if let dic = json as? [String: String] {
                     let accessToken = dic["access_token"] ?? ""
                     print(accessToken)
-                    self.token = accessToken
+                    completionHandelr(accessToken)
                 }
             case .failure(let error):
                 print(error)
@@ -83,5 +82,32 @@ class LoginManager {
         }
     }
        
+    func requestAccessTokenRx(with code: String) -> Observable<String> {
+        return Observable.create { emitter in
+            let url = "https://github.com/login/oauth/access_token"
+            let param = ["client_id" : self.CLIENT_ID,
+                         "client_secret" : self.CLIENT_SECRET,
+                         "code" : code]
+            let headers: HTTPHeaders = ["Accept" : "application/json"]
+            
+            AF.request(url, method: .post, parameters: param, headers: headers).responseJSON { response in
+                switch response.result {
+                case .success(let json):
+                    if let dic = json as? [String: String] {
+                        let accessToken = dic["access_token"] ?? ""
+                        print(accessToken)
+                        emitter.onNext(accessToken)
+                        emitter.onCompleted()
+                    }
+                case .failure(let error):
+                    print(error)
+                    emitter.onError(error)
+                }
+            }
+            return Disposables.create {
+                print(#function)
+            }
+        }
+    }
     
 }

@@ -18,8 +18,8 @@ class RepoListViewModel {
         
     }
     
-    func fetchData() {
-        service.fetchData(with: LoginManager.shared.token)
+    func fetchData(with token: String) {
+        service.fetchDataRx(with: token)
             .subscribe(subject)
             .disposed(by: disposeBag)
     }
