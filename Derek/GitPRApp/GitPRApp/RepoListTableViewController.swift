@@ -22,7 +22,7 @@ class RepoListTableViewController: UIViewController {
         tableView.layer.backgroundColor = UIColor.white.cgColor
         tableView.rowHeight = 100
         
-        
+        tableView.register(TableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
     override func viewDidLoad() {

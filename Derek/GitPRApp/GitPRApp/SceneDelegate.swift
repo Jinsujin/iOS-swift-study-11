@@ -69,10 +69,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     
                     LoginManager.shared.requestAccessToken(with: code) { [weak self] token in
                         guard let self = self else { return }
-                        let repoViewModel = RepoListViewModel()
-                        repoViewModel.fetchData(with: token)
-                        self.window?.rootViewController = UINavigationController(rootViewController: RepoListTableViewController())
-                       
+                        let repoVC = RepoListTableViewController()
+                        repoVC.viewModel.fetchData(with: token)
+                        self.window?.rootViewController = UINavigationController(rootViewController: repoVC)
                     }
                      
                 }
