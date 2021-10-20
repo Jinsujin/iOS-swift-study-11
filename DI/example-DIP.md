@@ -6,7 +6,7 @@
 
 ## 1. 의존성이 있는 기존 코드 형태
 
-Handle은 FileSystemManager 에 의존하고 있다.
+`Handle은` `FileSystemManager` 에 의존하고 있다.
 
 ```swift
 class Handle {
@@ -27,10 +27,9 @@ class FileSystemManager {
 
 ## 2. 인터페이스를 통해 추상화된것을 A, B 가 의존하게 한다
 
-Handler 는 FileSystemManager와 직접적인 영향이 없어졌다.
+인터페이스를 통해 연결됨으로써, `Handler` 는 `FileSystemManager`와 직접적인 영향이 없어졌다.
 
 ```swift
-
 // 다음과 같이 Layer 가 분리된다.
 // Handler -----> StorageInterface
 //                      |
@@ -69,4 +68,4 @@ class DatabaseSystemManager: StorageInterface {
 
 #### 참고자료
 
-[의존성 주입](https://lidium.tistory.com/34)
+[DIP-클래스간 의존성 끊기](https://lidium.tistory.com/34)
