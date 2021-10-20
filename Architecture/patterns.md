@@ -1,34 +1,34 @@
-## 아키텍쳐의 종류
+# 아키텍쳐의 종류
 
-MV 가 포함된 패턴은 다음과 같다.
+MV 가 포함된 패턴은 다음과 같다 :
 
 - MVC
 - MVP
 - MVVM
 
-여기서 M(Model) 은 domain data 나 data access layer 를 책임진다.
-V(View)는 presentation layer(GUI) 를 책임진다. iOS 에서는 UI 로 시작하는 모든것이다.
+여기서 **M(Model)** 은 domain data 나 data access layer 를 책임진다.
+**V(View)** 는 presentation layer(GUI) 를 책임진다. iOS 에서는 UI 로 시작하는 모든것이다.
 
 Controller, Presenter, ViewModel 은 Model 과 View 사이의 중재자이다. 일반적으로 View 의 사용자 액션에 대응하고, Model 의 변경사항을 업데이트 하여 Model을 변경하는 역할(책임)을 한다.
 
 엔티티를 나누면 다음과 같은 이점이 있다 :
 
-- 훨씬 이해하기 쉬워짐
+- 훨씬 이해하기 쉬워진다.
 - 재사용
 - 독립적으로 테스트 가능
 
-### 1. MVC
+## 1. MVC
 
 ![전통적인 MVC](./images/architecture-mvc-1.png)
 
-Model 이 변경되면 Controller 에 의해 rerendering 되어 진다.
-View 는 stateless 한 상태가 된다. (상태를 저장하지 않는다.)
+**Model** 이 변경되면 **Controller** 에 의해 rerendering 되어 진다.
+**View** 는 stateless 한 상태가 된다. (상태를 저장하지 않는다.)
 iOS 앱에서 이와같이 전통적인 MVC 패턴으로 구현하는것은 아키텍쳐 문제때문에 가능하지 않다.
 세개의 엔티티가 모두 밀접하게 결합되어 있고, 각 엔티티는 나머지 두 엔티티에 대해 알고 있다. 이런 상태는 애플리케이션의 재사용성을 크게 저하 시킨다.
 
 > 전통적인 MVC 패턴은 iOS 개발에 적용되지 않는다.
 
-### Apple's MVC (Massive View Controller)
+## Apple's MVC (Massive View Controller)
 
 ![Apple이 예상했던 MVC흐름](./images/architecture-mvc-expected.png)
 
@@ -56,7 +56,7 @@ View 와 Controller 가 밀접하게 붙어있기 때문이다. (뷰의 라이�
   Model, View 를 컨트롤 한다.
   보통 UIVIewController 의 서브클래스 형태
 
-아래와 같이 로직이 UIViewController 내부에 있어, UI 와 분리하여 테스트를 할 수 없다. :
+아래와 같이 로직이 `UIViewController` 내부에 있어, UI 와 분리하여 테스트를 할 수 없다. :
 
 ```
 // View + Controller
@@ -76,7 +76,7 @@ class HelloViewController : UIViewController {
 
 - 기능이 많아질수록 `ViweController` 에 코드가 계속 커지는 문제가 있다.
 
-### 2. MVP
+## 2. MVP
 
 ![MVP](./images/architecture-mvp.png)
 
@@ -104,7 +104,7 @@ MVP 의 특징은 다음과 같다:
 - 데이터가 업데이트 되었을때 `Presenter` 에서 `View` 에게 일일이 지시해야 한다.
 - ⇒ 이를 해결하기 위해 나온방법이 **MVVM**
 
-### 3. MVVM (Model-View-ViewModel)
+## 3. MVVM (Model-View-ViewModel)
 
 ![MVVM](./images/architecture-mvvm.png)
 MV 종류중 최근에 나온 가장 좋은 패턴이다.
@@ -137,7 +137,7 @@ MVVM 의 특징은 MVP 와 매우 비슷하다.:
 
   주로 비즈니스 로직을 처리한다.
 
-#### DataBinding의 방법
+### DataBinding의 방법
 
 - **Key-Value Observing or KVO**
   Key Path를 사용하여 프로퍼티에 변화가 있을 때 noti를 받기 위한 매커니즘
@@ -165,14 +165,16 @@ MVVM은 MVC에 비해 다음과 같은 이점을 제공해준다 :
 
 - 분리된 로직으로 인해 유닛 테스팅하기 좋다.
 
-- ViewModel에 UIKit 과 관련된 코드가 없기때문에, VIewModel을 이용해 로직을 테스트 하기 편하다.
-- View 와 ViewModel 이 바인딩되어, 데이터가 업데이트 됬을때 ViewModel 에서 일일이 처리하지 않아도 되어 코드양을 줄일 수 있다.(MVP 와 다른점)
+- **ViewModel** 에 UIKit 과 관련된 코드가 없기때문에, VIewModel을 이용해 로직을 테스트 하기 편하다.
+- View 와 ViewModel 이 바인딩되어, 데이터가 업데이트 됬을때 **ViewModel** 에서 일일이 처리하지 않아도 되어 코드양을 줄일 수 있다.(MVP 와 다른점)
 
 > 단점:
 
 - MVC 와 비교해 많아지는 코드량과 파일 생성.
 
-### 2-2. MVVM & Repository (🐻곰튀김)
+## 2-2. MVVM & Repository (🐻곰튀김)
+
+[곰튀김님의 MVVM 영상 바로가기](https://www.youtube.com/watch?v=M58LqynqQHc)
 
 기존의 MVVM에 Repository를 더하여 세분화 한 구조.
 
@@ -192,7 +194,7 @@ MVVM은 MVC에 비해 다음과 같은 이점을 제공해준다 :
   - 위와 같은 구조의 장점으로는 기존의 ViewModel이 많은 비즈니스 로직을 가지던 것에서, 데이터 처리는 Service가 관리함으로서 책임이 분산되는 특징이 있다.
   - 또한 책임이 분산되고 세분화함에 따라 구조를 파악하기 쉬워지지만 작성해야하는 코드가 늘어난다는 단점이 있다
 
-### 3. VIPER (View-Interactor-Presenter-Entity-Router)
+## 3. VIPER (View-Interactor-Presenter-Entity-Router)
 
 ![VIPER](./images/architecture-mvvm.png)
 MV\* 이 아닌 패턴.
@@ -240,8 +242,6 @@ VIPER 패턴의 특징은 다음과 같다:
   분배가 개선되어 테스트 하기 아주 좋다
 - 사용하기 쉽다:
   작은 책임을 가지는 클래스를 위해 아주 많은 인터페이스를 작성해야 한다.
-
----
 
 [^1]: 사전적 의미로는 ‘실체’, ‘존재’, ‘자주적인 것’, ‘본질’이다. 데이터베이스에서는 엔티티를 ‘실체’ 또는 ‘개체’라고 표현한다. 엔티티로 구성된 엔티티 집합이란 정보의 세계에서는 의미 있는 정보의 단위 또는 우리가 관리하고자 하는 두 개 이상의 속성과 두 개 이상의 개체를 지닌 동질성의 의미를 가진 독립적인 집합이다.(네이버지식백과)
 [^2]: 애플리케이션 개발에 관련된 정보를 보관해 둔 데이터베이스.
