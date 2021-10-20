@@ -37,4 +37,9 @@ Entity 를 서버나 로컬 DB에서 fetch 하는 역할
 ViewModel 과 View 는 아래 코드와 같이 바인딩되어, ViewModel 에서 값이 업데이트 되면 View 도 업데이트 됩니다.
 MVP 패턴에서는 ViewModel 에서 View에게 업데이트 하라고 지시해야 하지만, MVVM 에서는 이렇게 바인딩을 통해 해결 할 수 있는점이 장점인것 같습니다.
 
-https://github.com/Jinsujin/iOS-swift-study-11/blob/f3c2b8bf643e41ef95c6d3b8d54a9c1ae72bc598/Rosa/1week/1week/ViewController.swift#L28-L31
+```swift
+viewModel.onUpdated = { [weak self] in
+    guard let self = self else { return }
+    self.moviesLabel.text = self.viewModel.titlesString
+}
+```
