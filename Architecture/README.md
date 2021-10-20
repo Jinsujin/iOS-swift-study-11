@@ -37,4 +37,4 @@ iOS 개발에서 기본적으로 MVC 패턴을 따르게 된다.
 
 - 🧑🏻‍💻 [Derek](https://github.com/derek1119)
 - 👨🏻‍💻 [Walter](https://github.com/taeuk178)
-- 👩🏼‍💻 [Rosa](../Rosa/1week/README.md)
+- 👩🏼‍💻 [Rosa](../Rosa/1week/)
