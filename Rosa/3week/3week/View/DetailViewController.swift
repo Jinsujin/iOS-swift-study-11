@@ -31,16 +31,36 @@ class DetailViewController: UIViewController {
         """
         
         guard let avatarURLString =  item?.owner.avatarURL,
-              let avatarURL = URL(string: avatarURLString) else {
+              let avatarURL = URL(string: avatarURLString),
+              let langURLString = item?.languagesURL,
+              let langURL = URL(string: langURLString) else  {
             return
         }
         
-        loadImage(url: avatarURL)
+//        loadImage(url: avatarURL)
+//            .observe(on: MainScheduler.instance)
+//            .subscribe(onNext: { (image) in
+//                self.imageView.image = image
+//            }, onCompleted: {
+//                print("completed")
+//            }).disposed(by: disposeBag)
+//
+//        loadLanguage(url: langURL)
+//            .observe(on: MainScheduler.instance)
+//            .subscribe(onNext: { lang in
+//                self.textView.text = "\(lang)"
+//                print(lang)
+//            }, onCompleted: {
+//                print("load language completed")
+//            }).disposed(by: disposeBag)
+        
+        
+        // observable + observable
+        Observable.zip(loadImage(url: avatarURL),loadLanguage(url: langURL))
             .observe(on: MainScheduler.instance)
-            .subscribe(onNext: { (image) in
-                self.imageView.image = image
-            }, onCompleted: {
-                print("completed")
+            .subscribe ( onNext: { (image, dic)  in
+            self.imageView.image = image
+            self.textView.text = Array(dic.keys).joined(separator: ", ")
             }).disposed(by: disposeBag)
     }
     
@@ -65,6 +85,28 @@ class DetailViewController: UIViewController {
         }
     }
     
+    func loadLanguage(url: URL) -> Observable<[String: Int]> {
+        return Observable.create { emitter in
+            let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                if let error = error {
+                    emitter.onError(error)
+                }
+                guard let data = data,
+                      let decodedResult = try? JSONDecoder().decode([String: Int].self, from: data) else {
+                    emitter.onCompleted()
+                    return
+                }
+                
+                emitter.onNext(decodedResult)
+                emitter.onCompleted()
+            }
+            task.resume()
+            return Disposables.create {
+                task.cancel()
+            }
+        }
+    }
+
     
     private func setupViews() {
         self.view.addSubview(imageView)

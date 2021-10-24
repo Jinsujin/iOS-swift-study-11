@@ -23,6 +23,7 @@ struct Item: Codable {
     let htmlURL: String
     let itemDescription: String
     let score: Int
+    let languagesURL: String
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -34,6 +35,7 @@ struct Item: Codable {
         case score
         case htmlURL = "html_url"
        case itemDescription = "description"
+        case languagesURL = "languages_url"
     }
 }
 
