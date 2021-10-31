@@ -18,7 +18,8 @@ class Service {
             AF.request(url, method: .get, headers: headers)   .responseDecodable(of: [RepoData].self) { response in
                 switch response.result {
                 case .success(let data):
-                    emitter.onNext(data)
+                    let newData = data.filter { $0.fullName.contains("derek1119") }
+                    emitter.onNext(newData)
                     emitter.onCompleted()
                 case .failure(let error):
                     print("디코딩 오류")
