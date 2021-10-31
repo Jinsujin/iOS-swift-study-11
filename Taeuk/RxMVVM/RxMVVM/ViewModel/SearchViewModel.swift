@@ -11,6 +11,7 @@ import RxCocoa
 
 protocol SearchInputType {
     func requestSearchRepo(keyword: String)
+    var loginState: Observable<Bool> { get set }
 }
 
 protocol SearchOutputType {
@@ -28,6 +29,8 @@ class SearchViewModel: BaseViewModel, SearchInputType, SearchOutputType {
     
     var searchService: SearchDependency
     
+    // input
+    var loginState: Observable<Bool> = Observable<Bool>.just(false)
     
     // output
     var repoList: BehaviorRelay<RepositoryListModel> = BehaviorRelay(value: RepositoryListModel(total: 0,

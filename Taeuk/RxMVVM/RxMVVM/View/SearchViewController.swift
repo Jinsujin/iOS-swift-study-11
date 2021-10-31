@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class ViewController: BaseViewController {
+final class SearchViewController: BaseViewController {
 
     // MARK: - Properties
     
@@ -48,6 +48,17 @@ final class ViewController: BaseViewController {
         collectionView.backgroundColor = .white
         view.addSubview(repoSearchBar)
         view.addSubview(collectionView)
+        
+        if let navBar = navigationController?.navigationBar {
+            navBar.topItem?.rightBarButtonItem = UIBarButtonItem(title: "로그인", style: .plain, target: self, action: #selector(loginAction(_:)))
+        }
+    }
+    
+    @objc func loginAction(_ sender: UIBarButtonItem) {
+        print("ACTION")
+        let loginService = LoginService()
+        
+        loginService.openGithub()
     }
     
     override func setConstraints() {
@@ -64,7 +75,7 @@ final class ViewController: BaseViewController {
     }
 }
 
-extension ViewController: UISearchBarDelegate {
+extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
@@ -74,7 +85,7 @@ extension ViewController: UISearchBarDelegate {
     }
 }
 
-extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension SearchViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return searchViewModel.output.repoList.value.items.count
