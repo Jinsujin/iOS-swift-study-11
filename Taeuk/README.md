@@ -1,1 +1,7 @@
-# iOS-swift-study-11
+# 프로젝트
+
+## 구조
+
+View - ViewModel - Service - Model
+
+
