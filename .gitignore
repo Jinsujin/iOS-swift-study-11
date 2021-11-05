@@ -100,7 +100,7 @@ iOSInjectionProject/
 
 
 ## vscode
-.history/
+.history/*
 
 
 ## Gcc Patch

@@ -30,6 +30,12 @@ struct와 enum과 같은 값 타입에서도 채택이 가능하며, 수직적 �
 
 extension을 통해 부분 기본 구현으로 좀더 유연한 개발이 가능해보인다.
 
+## 아키텍쳐를 적용한 토이프로젝트 🧸
+
+- 🧑🏻‍💻 Derek - [POP를 적용한 날씨앱](../Derek/Week2/)
+<!-- - 👨🏻‍💻 [Walter](https://github.com/taeuk178) -->
+- 👩🏼‍💻 Rosa - [의존성 주입으로 리펙토링](../Rosa/2week/)
+
 ## Example
 
 ```swift
