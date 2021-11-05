@@ -18,10 +18,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        window?.rootViewController = ViewController()
+        window?.rootViewController = UINavigationController(rootViewController: SearchViewController())
         window?.makeKeyAndVisible()
     }
 
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        
+        let loginService = LoginService()
+        
+        if let url = URLContexts.first?.url {
+            
+            if url.absoluteString.starts(with: "rxmvvm://") {
+                if let code = url.absoluteString.split(separator: "=").last.map({ String($0) }) {
+                    print(code)
+                    loginService.fetchRepository(code: code)
+                }
+            }
+        }
+    }
+    
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.

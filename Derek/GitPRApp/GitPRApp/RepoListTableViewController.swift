@@ -20,7 +20,7 @@ class RepoListTableViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .white
         tableView.layer.backgroundColor = UIColor.white.cgColor
-        tableView.rowHeight = 100
+        tableView.rowHeight = 80
         
         tableView.register(TableViewCell.self, forCellReuseIdentifier: "cell")
     }
@@ -43,6 +43,12 @@ class RepoListTableViewController: UIViewController {
             print(model.fullName)
             cell.titleLabel.text = model.fullName
         }.disposed(by: disposeBag)
+        
+        tableView.rx.modelSelected(RepoData.self)
+            .subscribe(onNext: { item in
+                print(item.repoDescription)
+            })
+            .disposed(by: disposeBag)
     }
     
     private func setupUI() {

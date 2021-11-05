@@ -12,11 +12,10 @@ class RepoListViewModel {
     let service = Service()
     let disposeBag = DisposeBag()
     
-    let subject = BehaviorSubject<[RepoData]>(value: [])
-    
-    init () {
-        
+    init() {
     }
+    
+    let subject = BehaviorSubject<[RepoData]>(value: [])
     
     func fetchData(with token: String) {
         service.fetchDataRx(with: token)
