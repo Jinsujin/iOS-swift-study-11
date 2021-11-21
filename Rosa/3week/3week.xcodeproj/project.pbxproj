@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F2665C9274A5461001DCB2B /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2665C8274A5461001DCB2B /* LoginManager.swift */; };
 		6F597CCF272446D1002D8B77 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F597CCE272446D1002D8B77 /* DetailViewController.swift */; };
 		6FEEEDD427127CA7001D4161 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEEEDD327127CA7001D4161 /* AppDelegate.swift */; };
 		6FEEEDD627127CA7001D4161 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEEEDD527127CA7001D4161 /* SceneDelegate.swift */; };
@@ -47,6 +48,7 @@
 		427A4BE931B62DBA72391D21 /* Pods-3week.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-3week.debug.xcconfig"; path = "Target Support Files/Pods-3week/Pods-3week.debug.xcconfig"; sourceTree = "<group>"; };
 		4A2FC59D32C9E84352C5EA19 /* Pods_3week.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_3week.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C97D26615C0763B2EDBB091 /* Pods-3week-3weekUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-3week-3weekUITests.release.xcconfig"; path = "Target Support Files/Pods-3week-3weekUITests/Pods-3week-3weekUITests.release.xcconfig"; sourceTree = "<group>"; };
+		6F2665C8274A5461001DCB2B /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		6F597CCE272446D1002D8B77 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		6FEEEDD027127CA7001D4161 /* 3week.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 3week.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FEEEDD327127CA7001D4161 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				6FEEEDDC27127CAB001D4161 /* Assets.xcassets */,
 				6FEEEDDE27127CAB001D4161 /* LaunchScreen.storyboard */,
 				6FEEEDE127127CAB001D4161 /* Info.plist */,
+				6F2665C8274A5461001DCB2B /* LoginManager.swift */,
 			);
 			path = 3week;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FEEEE0E271293A1001D4161 /* Item.swift in Sources */,
+				6F2665C9274A5461001DCB2B /* LoginManager.swift in Sources */,
 				6FEEEDD827127CA7001D4161 /* ViewController.swift in Sources */,
 				6FEEEE1627129FF3001D4161 /* Service.swift in Sources */,
 				6FEEEDD427127CA7001D4161 /* AppDelegate.swift in Sources */,
@@ -640,7 +644,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Jin.com.-week";
+				PRODUCT_BUNDLE_IDENTIFIER = Jin.com.week3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -660,7 +664,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Jin.com.-week";
+				PRODUCT_BUNDLE_IDENTIFIER = Jin.com.week3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -17,7 +17,10 @@ class ViewController: UIViewController {
         bindUI()
     }
 
-
+    @IBAction func touchedLoginButton(_ sender: Any) {
+        viewModel.login()
+    }
+    
     @IBAction func touchedFetchButton(_ sender: Any) {
         viewModel.fetchData()
     }

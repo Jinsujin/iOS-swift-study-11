@@ -47,6 +47,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
-
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        if let url = URLContexts.first?.url {
+//            url= githubrx://?code=8bcd86b88f725bca84f2
+            if url.absoluteString.starts(with: "githubrx://") {
+                if let code = url.absoluteString.split(separator: "=").last.map({ String($0) }) {
+                    print("CODE=", code)
+                    LoginManager.shared.requestAccessToken(with: code) { (isSuccess, responseDic) in
+                        print(isSuccess)
+                    }
+                }
+            }
+        }
+    }
 }
 
